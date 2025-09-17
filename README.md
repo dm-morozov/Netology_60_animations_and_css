@@ -1,13 +1,13 @@
-# Trello-подобное приложение (учебный проект)
+# Домашнее задание к занятию "9. Анимации и CSS"
 
 ---
 
 ### Статус проекта
-[![Build status](https://ci.appveyor.com/api/projects/status/idhr8jiytad8iy1k?svg=true)](https://ci.appveyor.com/project/dm-morozov/netology-56-file-handling-dnd)
-![CI](https://github.com/dm-morozov/Netology_56_file_handling_dnd/actions/workflows/web.yaml/badge.svg)
+[![Build status](https://ci.appveyor.com/api/projects/status/a635qqgthl1wnubu?svg=true)](https://ci.appveyor.com/project/dm-morozov/netology-60-animations-and-css)
+![CI](https://github.com/dm-morozov/Netology_60_animations_and_css/actions/workflows/web.yaml/badge.svg)
 ![Netology](https://img.shields.io/badge/TypeScript-WebPack-blue)
 
-[**Ссылка на проект на GitHub Pages**](https://dm-morozov.github.io/Netology_56_file_handling_dnd/)
+[**Ссылка на проект на GitHub Pages**](https://dm-morozov.github.io/Netology_60_animations_and_css/)
 
 ---
 
