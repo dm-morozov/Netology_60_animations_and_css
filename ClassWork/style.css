@@ -119,3 +119,50 @@
   box-shadow: 0 0 20px 1px rgba(0, 123, 255, 0.7);
   transform: scale(1);
 }
+
+.coin{
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	cursor: pointer;
+	font-weight: 700;
+	font-size: xx-large;
+	background: seagreen;
+	color:white;
+}
+.coin_2 {
+	transform: rotateY(0deg);
+}
+.coin_2_second_state {
+	transform: rotateY(360deg);
+	transition: transform 1s linear;
+}
+
+/* Базовые стили для контейнера */
+.container_2 {
+  width: 400px;
+  height: 200px;
+  /* Добавляем относительное позиционирование, чтобы можно было двигать дочерние элементы */
+  position: relative;
+  /* Граница, чтобы видеть границы контейнера */
+  border: 2px dashed #ccc;
+  margin: 20px auto;
+}
+
+/* Стили для квадрата, который будет двигаться */
+.square {
+  width: 50px;
+  height: 50px;
+  background-color: steelblue;
+  /* Абсолютное позиционирование позволяет нам управлять его положением с помощью свойств top, left, right и bottom */
+  position: absolute;
+  /* Начальная позиция квадрата */
+  top: 50%;
+  left: 0;
+  /* Сдвигаем квадрат на половину его высоты, чтобы он был по центру по вертикали */
+  transform: translateY(-50%);
+}

@@ -27,6 +27,45 @@
             <i class="fa fa-phone" aria-hidden="true"></i>
         </div>
     </div>
+    <div class="container_2">
+        <div class="square requestAnimationFrame" id="requestAnimationFrameSquare"></div>
+    </div>
+
+    <script>
+        document.getElementById('coin_2').addEventListener('click', ({currentTarget}) => {
+            currentTarget.classList.add('coin_2_second_state');
+            setTimeout(() => {
+                currentTarget.classList.remove('coin_2_second_state');
+            }, 1000);
+        });
+
+        const obj = document.getElementById('requestAnimationFrameSquare');
+        // Максимальная позиция, до которой может дойти квадрат
+        // (ширина родителя - ширина самого квадрата)
+        const maxPosition = obj.parentNode.clientWidth - obj.clientWidth;
+        const duration = 2000; // Длительность одного цикла анимации в миллисекундах (2 секунды)
+
+        function animate(time) {
+        // Вычисляем прогресс анимации в цикле от 0 до duration.
+        // Оператор % позволяет создать циклический эффект.
+        const progress = time % duration;
+
+        // Рассчитываем текущую позицию от 0 до 1
+        const normalizedProgress = progress / duration;
+
+        // Вычисляем новое положение, умножая нормализованный прогресс на максимальную позицию.
+        const position = normalizedProgress * maxPosition;
+
+        // Присваиваем новое положение элементу.
+        obj.style.left = position + "px";
+
+        // Запускаем следующий кадр.
+        window.requestAnimationFrame(animate);
+        }
+
+        // Запускаем анимацию в первый раз.
+        window.requestAnimationFrame(animate);
+    </script>
 
 </body>
 </html>
