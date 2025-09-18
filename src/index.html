@@ -1,15 +1,166 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Домашнее задание к занятию "9. Анимации и CSS"</title>
 </head>
+
 <body>
     <div class="container">
-        <h1><a href="https://github.com/netology-code/ahj-homeworks/tree/AHJ-50/anim/">Домашнее задание к занятию "9. Анимации и CSS"</a></h1>
+        <h1><a href="https://github.com/netology-code/ahj-homeworks/tree/AHJ-50/anim/">Домашнее задание к занятию "9.
+                Анимации и CSS"</a></h1>
+        <section class="collapse-section section">
+            <h3 class="collapse-header section-header">Collapse</h3>
+            <h4 class="title title-section">Легенда</h4>
+            <p class="text text-legend">
+                В рамках реализации большого портала вам необходимо сделать виджет
+                <span class="keyword">"collapsible"</span>-контейнеров, который может
+                разворачиваться и сворачиваться.
+            </p>
 
-        
+            <h4 class="title title-section">Описание</h4>
+            <p class="text text-description">
+                Подобный виджет есть в рамках <span class="keyword">Bootstrap</span>, но как мы с вами "знаем":
+                <span class="quote">"jQuery не нужен"</span>, поэтому вам нужно реализовать такой же виджет
+                на чистом JS.
+            </p>
+            <figure class="illustration-collapse">
+                <img src="./img/collapse.gif" alt="Collapse" class="collapse-img  img-illustration">
+            </figure>
+            <p class="text text-note">Авто-тесты на данную задачу не нужны.</p>
+
+            <h4 class="title title-section">Реализация</h4>
+            <button class="button collapse-button">Collapse</button>
+            <div class="collapse-container">
+                <div class="collapse-content">
+                    <p class="text text-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur
+                        cupiditate vel sapiente doloremque officiis ullam voluptatem doloribus, at tempora autem
+                        voluptate dolor consequatur eos qui nulla laborum nesciunt! Rem, perspiciatis.</p>
+                </div>
+            </div>
+        </section>
+        <section class="callback-section section">
+            <h3 class="callback-header section-header">Callback Chat* (задача со звёздочкой)</h3>
+
+            <p class="text text-note">
+                Важно: эта задача не является обязательной. Её (не)выполнение не влияет на получение зачёта по ДЗ.
+            </p>
+
+            <h4 class="title title-section">Легенда</h4>
+            <p class="text text-legend">
+                Вам поставили задачу сделать виджет обратной связи на портал компании.
+                Необходимо это сделать. Ключевое тут, конечно же, <span class="keyword">анимации</span> –
+                поскольку всё остальное вы уже умеете.
+            </p>
+
+            <h4 class="title title-section">Описание</h4>
+            <p class="text text-description">
+                Реализуйте показ и скрытие, как это отображено на картинке:
+            </p>
+            <figure class="illustration-callback">
+                <img src="./img/callback.gif" alt="Пример анимации появления и скрытия формы обратной связи"
+                    class="callback-img img-illustration">
+            </figure>
+            <p class="text text-description">
+                Обратите внимание, что при нажатии на кнопку, сама кнопка тоже исчезает, а при скрытии формы –
+                появляется.
+            </p>
+            <p class="text text-description">
+                Длительность анимации, использованная в оригинале, – <strong>100ms</strong>, функция анимации –
+                <strong>linear</strong>.
+            </p>
+            <p class="text text-description">
+                Организуйте код в виде виджета, готового к установке через базовый контейнер в html и инициализацию.
+            </p>
+
+            <p class="text text-note">Авто-тестов на данную задачу не нужно.</p>
+
+            <h4 class="title title-section">Реализация</h4>
+
+            <p class="text text-description">Понимаю, что ножно было реализовать элемент <span
+                    class="keyword">chatButton</span> в CSS с помощью <span class="keyword">position: fixed</span>, но
+                чтобы смотрелось красиво и в секции callback-section, именно в задании. Анимацию реализовал и даже
+                усложнил с полным пониманием <span class="keyword">transform, transition и animation</span></p>
+
+            <div class="callback-container">
+                <div class="callback-content">
+                    <div class="callback-header-container">
+                        <h4 class="callback-header">Напишите нам</h4>
+                        <button class="close-btn">✖</button>
+                    </div>
+                    <form class="callback-form">
+                        <textarea name="message" id="callback-message" autofocus></textarea>
+                        <button type="submit">Отправить</button>
+                    </form>
+                </div>
+
+                <div class="chat-button-container">
+                    <div class="chat-button"></div>
+                </div>
+            </div>
+        </section>
+        <section class="liker-section section">
+            <h3 class="liker-header section-header">Liker* (задача со звёздочкой)</h3>
+
+            <p class="text text-note">
+                Важно: эта задача не является обязательной. Её (не)выполнение не влияет на получение зачёта по ДЗ.
+            </p>
+
+            <h4 class="title title-section">Легенда</h4>
+            <p class="text text-legend">
+                Все любят кнопки <span class="keyword">лайков</span>, вам поручили реализовать одну из них.
+            </p>
+
+            <h4 class="title title-section">Описание</h4>
+            <p class="text text-description">
+                Реализуйте поведение, указанное на картинке:
+            </p>
+            <figure class="illustration-liker">
+                <img src="./img/liker.gif" alt="Пример анимации кнопки лайка" class="liker-img img-illustration">
+            </figure>
+
+            <p class="text text-description">
+                Данные для анимации:
+            </p>
+            <ul class="list list-description">
+                <li>Изображение — <img src="./img/heart.png" class="heart-img" alt="Иконка сердца"></li>
+                <li>Высота, на которой исчезают лайки — <strong>200px</strong></li>
+                <li>Макс. отклонение влево/вправо — <strong>50px</strong></li>
+                <li>Скорость анимации — <strong>500ms</strong></li>
+                <li>Функция анимации — <strong>ease-out</strong> (можете использовать другую)</li>
+            </ul>
+
+            <p class="text text-description">
+                Возможные траектории (траектория выбирается рандомно):
+            </p>
+            <ul class="list list-trajectories">
+                <li>0% — центр, 25% — влево, 50% — центр, 75% — вправо, 100% — центр</li>
+                <li>0% — центр, 25% — центр, 50% — вправо, 75% — влево, 100% — центр</li>
+                <li>0% — центр, 25% — центр, 50% — влево, 75% — вправо, 100% — центр</li>
+                <li>0% — центр, 25% — вправо, 50% — центр, 75% — влево, 100% — центр</li>
+            </ul>
+
+            <p class="text text-description">
+                Важно: обратите внимание, что элементы после "исчезания" должны удаляться из DOM.
+                Используйте для этого соответствующие события, а не таймауты.
+            </p>
+
+            <p class="text text-note">Авто-тестов на данную задачу не нужно.</p>
+
+            <h4 class="title title-section">Реализация</h4>
+
+
+            <div class="like-wrapper">
+                <div class="like-container">
+                </div>
+
+                <button class="like-button button">Like the Reviewer</button>
+            </div>
+
+        </section>
     </div>
 </body>
+
 </html>

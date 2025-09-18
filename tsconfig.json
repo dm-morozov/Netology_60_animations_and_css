@@ -15,7 +15,9 @@
     "rootDir": "./src",
 
     "noImplicitAny": true,
-    "sourceMap": true
+    "sourceMap": true,
+
+    "lib": ["DOM", "ES2020"] 
   },
   
   // Какие файлы обрабатывать.

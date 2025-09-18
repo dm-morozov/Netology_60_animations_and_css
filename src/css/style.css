@@ -31,215 +31,357 @@ a:hover {
     color: #0056b3;
 }
 
-/* Стили для контейнера */
+strong {
+    font-weight: 500;
+}
+
 .container {
     max-width: 900px;
     margin: 0 auto;
     padding: 20px;
 }
 
-#board {
+/* Секция collapse */
+.section {
+    background: #fff;
+    border-radius: 8px;
+    padding: 25px 30px;
+    margin: 30px 0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.section:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+}
+
+.section-header {
+    font-size: 20px;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 15px;
+    text-align: left;
+    position: relative;
+    padding-left: 10px;
+    border-left: 4px solid #0079bf;
+}
+
+/* Заголовки внутри секции */
+.title-section {
+    font-size: 18px;
+    margin: 20px 0 10px;
+    color: #34495e;
+    text-align: left;
+}
+
+/* Текстовые блоки */
+.text {
+    line-height: 1.6;
+    margin: 10px 0;
+    font-size: 15px;
+}
+
+.text-legend {
+    color: #555;
+}
+
+.text-description {
+    color: #333;
+}
+
+.text-note {
+    color: #777;
+    font-style: italic;
+    margin-top: 20px;
+}
+
+/* Выделение ключевых слов */
+.keyword {
+    font-weight: 400;
+    color: #0079bf;
+}
+
+/* Цитаты */
+.quote {
+    font-style: italic;
+    color: #0079bf;
+}
+
+.button {
+  padding: 10px 20px;
+  background-color: #0079bf;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  outline: none;
+  box-shadow: 0 0 0 0 rgba(0, 123, 255, 0.7);
+  transform: scale(1);
+  transition: background-color 0.3s ease, transform 1s ease, box-shadow 1s ease;
+}
+
+.button:hover {
+  background-color: #0056b3;
+}
+
+@keyframes pulse-shadow {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(0, 123, 255, 0.7);
+  }
+  70% {
+    transform: scale(1.1);
+    box-shadow: 0 0 0 20px rgba(0, 123, 255, 0);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(0, 123, 255, 0);
+  }
+}
+
+.button {
+  animation: pulse-shadow 2s;
+  animation-iteration-count: infinite;
+  animation-play-state: running;
+}
+
+.collapse-container {
+  overflow: hidden;
+  max-height: 0px;
+  transition: max-height 0.5s ease-in-out;
+}
+
+.collapse-container.collapsed {
+  max-height: 500px;
+}
+
+.button.collapsed {
+  animation-play-state: paused;
+  animation: none;
+}
+
+.collapse-content {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px 20px;
+  margin-top: 10px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.img-illustration {
+  max-width: 100%;
+  height: auto;
+}
+
+.chat-button-container {
+  width: 100%;
   display: flex;
-  gap: 20px;
-  align-items: start;
+  justify-content: end;
 }
 
-.column {
-  background-color: #ebecf0;
-  border-radius: 8px;
-  padding: 10px;
-  width: 250px;
-  flex-shrink: 0;
-  display: flex;
-  flex-direction: column;
+.chat-button {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: seagreen;
+    animation: chat-button 1.5s infinite;
+    animation-direction: alternate;
+    transition: all 0.1s linear;
 }
 
-.column h3 {
-  margin: 0 0 10px 0;
-  font-size: 18px;
+.chat-button.hidden {
+  opacity: 0;
+  visibility: hidden;
 }
 
-.cards-container {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-
-  min-height: 50px;
-  border: 2px dashed transparent;
-  padding: 5px;
-  transition: border 0.3s ease;
+@keyframes chat-button {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.5);
+    }
 }
 
-.placeholder {
-  color: #999;
-  font-size: 14px;
-  font-style: italic;
-  padding: 10px;
-  text-align: center;
+.chat-button:hover {
+  /* animation: none;
+  transform: scale(1.5); */
+  animation-play-state: paused;
+  box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+}
+
+
+/* Стили контейнера формы */
+
+.callback-content {
+  margin: 0 auto;
+  background-color: #f8f9fa;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 280px;
+  box-sizing: border-box;
+
+  transform: scale(0);
+  opacity: 0;
+  visibility: hidden;
+  max-height: 0;
+  transition: transform 0.1s linear, opacity 0.1s linear;
+}
+
+.callback-content.active {
+    transform: scale(1);
+    opacity: 1;
+    visibility: visible;
+    max-height: 600px;
+}
+
+.callback-header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #e9ecef;
+    padding-bottom: 10px;
+}
+
+.callback-header {
+    font-size: 18px;
+    font-weight: 600;
+    color: #343a40;
+    margin: 0;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #adb5bd;
+    cursor: pointer;
+    transition: color 0.2s ease-in-out;
+}
+
+.close-btn:hover {
+    color: #495057;
+}
+
+/* Стили для формы */
+
+.callback-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.callback-form textarea {
+    width: 100%;
+    height: 100px; 
+    box-sizing: border-box;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 14px;
+    resize: none;
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.callback-form textarea:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+.callback-form button[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    font-weight: 600;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.callback-form button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+
+
+.like-wrapper {
+  position: relative;
+  width: fit-content; /* Ширина по содержимому */
+  margin: 0 auto;
+}
+
+.like-container {
+  position: absolute;
+  bottom: 100%; /* Размещаем прямо над кнопкой */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150px;
+  height: 200px;
+  overflow: hidden; /* Обрезаем лайки, если они выходят за пределы контейнера */
   pointer-events: none;
 }
 
-.cards-container.dragover {
-  border: 2px dashed #0079bf;
-}
-
-.card {
-  font-size: 14px;
+.like-button {
   position: relative;
-  background-color: white;
-  border-radius: 6px;
-  padding: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  cursor: grab;
-  transition: background-color 0.2s ease, box-shadow 0.3s ease;
 }
 
-.card:hover {
-  background-color: #f0f0f0;
-  box-shadow: 0 0 0 2px rgba(0, 121, 191, 0.5);
-}
-
-.card:active {
-  cursor: grabbing;
-}
-
-.add-card-button {
-  background-color: #0079bf;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  padding: 8px 16px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  margin: 7px;
-}
-
-.add-card-button:hover {
-  background-color: #005ea2;
-}
-
-.delete-card, .edit-card {
+.heart {
   position: absolute;
-  top: 4px;
-  width: 20px;
-  height: 20px;
-  padding: 0px;
-  line-height: 1;
-  border-radius: 50%;
-  background-color: transparent;
-  border: none;
-  color: #999;
-  font-size: 14px;
-  cursor: pointer;
-  display: none;
-  transition: color 0.2s ease, background-color 0.2s ease;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px; /* Размер сердечка */
+  height: auto;
+  opacity: 0.9;
+  animation-duration: 500ms;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards; /* Сохраняет конечное состояние анимации */
 }
 
-.edit-card {
-  right: 26px;
+/* Анимации для разных траекторий */
+
+/* 0% — центр, 25% — влево, 50% — центр, 75% — вправо, 100% — центр */
+@keyframes heart-path-1 {
+    0% { transform: translateX(-50%) translateY(0); opacity: 1; }
+    25% { transform: translateX(calc(-50% - 50px)) translateY(-50px); opacity: 0.9; }
+    50% { transform: translateX(-50%) translateY(-100px); opacity: 0.7; }
+    75% { transform: translateX(calc(-50% + 50px)) translateY(-150px); opacity: 0.4; }
+    100% { transform: translateX(-50%) translateY(-200px); opacity: 0; }
 }
 
-.delete-card {
-  right: 6px;
+/* 0% - центр, 25% - центр, 50% - вправо, 75% - влево, 100% - центр */
+
+@keyframes heart-path-2 {
+    0% { transform: translateX(-50%) translateY(0); opacity: 1; }
+    25% { transform: translateX(-50%) translateY(-50px); opacity: 0.9; }
+    50% { transform: translateX(calc(-50% + 50px)) translateY(-100px); opacity: 0.7; }
+    75% { transform: translateX(calc(-50% - 50px)) translateY(-150px); opacity: 0.4; }
+    100% { transform: translateX(-50%) translateY(-200px); opacity: 0; }
 }
 
-.card:hover .delete-card,
-.card:hover .edit-card {
-  display: block;
+/* 0% - центр, 25% - центр, 50% - влево, 75% - вправо, 100% - центр */
+@keyframes heart-path-3 {
+    0% { transform: translateX(-50%) translateY(0); opacity: 1; }
+    25% { transform: translateX(-50%) translateY(-50px); opacity: 0.9; }
+    50% { transform: translateX(calc(-50% - 50px)) translateY(-100px); opacity: 0.7; }
+    75% { transform: translateX(calc(-50% + 50px)) translateY(-150px); opacity: 0.4; }
+    100% { transform: translateX(-50%) translateY(-200px); opacity: 0; }
 }
 
-.delete-card:hover{
-  color: red;
-  background-color: white;
-}
-
-.edit-card:hover { 
-  color: #0079bf; 
-  background-color: white;
-}
-
-.edit-input {
-  width: 75%;
-  padding: 6px;
-  font-size: 14px;
-  border: 1px solid #0079bf;
-  border-radius: 4px;
-  outline: none;
-}
-
-.edit-input:focus {
-  border-color: #005ea2;
-}
-
-.hide {
-  display: none;
-}
-
-.drag-placeholder {
-    height: 40px;
-    background-color: rgba(0, 121, 191, 0.08);
-    border-radius: 6px;
-    margin: 5px 0;
-}
-
-.add-card-form {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    background-color: white;
-    border-radius: 6px;
-    padding: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin: 7px;
-}
-
-.input-for-new-card {
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    padding: 8px;
-    font-size: 14px;
-    width: 100%;
-    box-sizing: border-box;
-    transition: border-color 0.2s ease;
-}
-
-.input-for-new-card:focus {
-    outline: none;
-    border-color: #0079bf;
-}
-
-.add-card-buttons-container {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.add-card-btn-ok {
-    background-color: #0079bf;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    padding: 8px 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.add-card-btn-ok:hover {
-    background-color: #005ea2;
-}
-
-.add-card-btn-cancel {
-    background: none;
-    border: none;
-    color: #555;
-    font-size: 20px;
-    cursor: pointer;
-    transition: color 0.2s ease;
-    padding: 3px 8px;
-    border-radius: 4px;
-}
-
-.add-card-btn-cancel:hover {
-    color: #e55353;
-    background-color: rgba(229, 83, 83, 0.1);
+/* 0% - центр, 25% - вправо, 50% - центр, 75% - влево, 100% - центр */
+@keyframes heart-path-4 {
+    0% { transform: translateX(-50%) translateY(0); opacity: 1; }
+    25% { transform: translateX(calc(-50% + 50px)) translateY(-50px); opacity: 0.9; }
+    50% { transform: translateX(-50%) translateY(-100px); opacity: 0.7; }
+    75% { transform: translateX(calc(-50% - 50px)) translateY(-150px); opacity: 0.4; }
+    100% { transform: translateX(-50%) translateY(-200px); opacity: 0; }
 }
